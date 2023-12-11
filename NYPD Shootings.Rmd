@@ -1,0 +1,80 @@
+---
+prtitle: A Link Between Poverty Within African-American Communities and Crime.
+author: "Gentaro Nakata"
+date: "2023-12-03"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+# A Link Between Poverty Within African-American Communities and Crime.
+
+## Abstract
+
+The data on hand is from the New York Police Department, and it details all the shooting incidents starting from 2006 to 2022. For this project an analysis will be done with this data to see which parts of New York had the most incidents and the race of the perpetrators and victims. After analysis, the data will show a link between crimes involving African-Americans and them being in poor neighborhoods.
+
+## Procedure
+
+First, we are going to import the data.
+
+```{r get_jhu_data}
+##Data from the NYPD
+url_in <- "https://data.cityofnewyork.us/api/views/833y-fsy8/rows.csv?accessType=DOWNLOAD"
+urls <- str_c(url_in)
+
+```{r import_data, message=FALSE}
+shooting_cases <- read_csv(urls)
+```
+
+Then we are going to filter out the columns with data that we aren't interested in.
+
+```{r tidy_shooting_data}
+##Filter out certain columns
+shooting_cases <- shooting_cases %>%
+               #names_to = "date",
+               #values_to = "cases")
+  select(-c(LOC_OF_OCCUR_DESC,PRECINCT,JURISDICTION_CODE,LOCATION_DESC,
+                         STATISTICAL_MURDER_FLAG,VIC_SEX,X_COORD_CD,Y_COORD_CD,Latitude,Longitude,Lon_Lat,LOC_CLASSFCTN_DESC,PERP_AGE_GROUP,PERP_SEX,VIC_AGE_GROUP))
+
+shooting_cases
+```
+
+In the table, the vast majority of the cases that are visible, have had an African-American involved in the incident, whether it's as a perp or a victim.
+
+## Plotting the Data and Analysis
+
+First is the plot for how many incidents happened in which borough of New York City.
+
+```{r borough}
+##Plot the Boroughs with the shootings
+shooting_cases %>%
+  ggplot(aes(x = BORO)) + 
+  geom_bar() + 
+  labs(title = "Borough of the Crime", x = "Borough", y = "Number of Shootings")
+```
+
+The plot shows that the Bronx and Brooklyn have the highest rate of shootings among the boroughs. According to the US Census Data, the Bronx and Brooklyn are the two boroughs with the highest poverty rate in New York. This shows a correlation between high poverty rates and high crime rates.
+
+The second plot is to show the ethnicity of the perp and the victim.
+
+```{r fig.height=10, fig.width=7.5, race, echo=FALSE}
+##Plot the race of the perps and that of the victims
+shooting_cases %>%
+  ggplot(aes(x = VIC_RACE)) + 
+  geom_bar() + 
+  facet_wrap(vars(PERP_RACE), ncol = 1) + 
+  theme(text = element_text(size = 5.5)) +
+  labs(title = "Race of Perp and Victim", x = "Race of the Victim", y = "Number of Victims")
+```
+
+The plots show that African-Americans are overwhelmingly more likely to be involved with shootings than other ethnicities. Having shown the correlation between poverty rates and crime rates, this data could mean that African-American neighborhoods are poorer areas, thus experience more crime.
+
+## Biases and Flaws in the Data
+
+There are flaws in this data, for example, there are a large portion of the data where the perp's race isn't specified. Another oversight is that Hispanic people as a whole aren't shown within the data despite them being a large portion of the population of New York in the Census data.
+There are also personal biases for how the data was interpreted, since I personally believe, despite the progress that has been made in the decades prior since the civil rights movement, that African-Americans are still in a tough spot societal-wise, within the United States. Thus, increased crime rates in those communities, and that the US needs to do better at combating that.
