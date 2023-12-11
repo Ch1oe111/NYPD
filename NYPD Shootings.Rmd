@@ -1,5 +1,5 @@
 ---
-prtitle: A Link Between Poverty Within African-American Communities and Crime.
+prtitle: A Link Between Poverty and the Shootings of NYC.
 author: "Gentaro Nakata"
 date: "2023-12-03"
 output:
@@ -12,11 +12,11 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-# A Link Between Poverty Within African-American Communities and Crime.
+# A Link Between Poverty and the Shootings of NYC.
 
 ## Abstract
 
-The data on hand is from the New York Police Department, and it details all the shooting incidents starting from 2006 to 2022. For this project an analysis will be done with this data to see which parts of New York had the most incidents and the race of the perpetrators and victims. After analysis, the data will show a link between crimes involving African-Americans and them being in poor neighborhoods.
+In my report, I will be going through data from the New York Police Department that details all the shootings that have happened since 2006. The data set shows what borough the shooting occurred, and the ages and race of the perp and victim. In this report, I will be looking at the data for the number of shootings in each borough of NY, and the race of the perps and victims. We will see that the boroughs with the most shootings were the Bronx and Brooklyn. The data will also show that African Americans are over-represented when it comes to being involved with these crimes. Both communities are known to be some of the poorest in NYC, showing a correlation between poverty and crime.
 
 ## Procedure
 
@@ -72,9 +72,10 @@ shooting_cases %>%
   labs(title = "Race of Perp and Victim", x = "Race of the Victim", y = "Number of Victims")
 ```
 
-The plots show that African-Americans are overwhelmingly more likely to be involved with shootings than other ethnicities. Having shown the correlation between poverty rates and crime rates, this data could mean that African-American neighborhoods are poorer areas, thus experience more crime.
+The plots show that African-Americans are overwhelmingly more likely to be involved with shootings than other ethnicities. Since African-Americans are one of the poorest demographics in NYC, we can once again see the correlation between poverty and crime.
 
 ## Biases and Flaws in the Data
 
 There are flaws in this data, for example, there are a large portion of the data where the perp's race isn't specified. Another oversight is that Hispanic people as a whole aren't shown within the data despite them being a large portion of the population of New York in the Census data.
-There are also personal biases for how the data was interpreted, since I personally believe, despite the progress that has been made in the decades prior since the civil rights movement, that African-Americans are still in a tough spot societal-wise, within the United States. Thus, increased crime rates in those communities, and that the US needs to do better at combating that.
+There are also flaws in the way I show the data, I wasn't able to make a graph of the number of shootings that happened each year, thus showing whether the number of shootings in NYC has increased or decreased.
+
