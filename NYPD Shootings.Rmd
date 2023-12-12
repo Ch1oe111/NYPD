@@ -76,6 +76,6 @@ The plots show that African-Americans are overwhelmingly more likely to be invol
 
 ## Biases and Flaws in the Data
 
-There are flaws in this data, for example, there are a large portion of the data where the perp's race isn't specified. Another oversight is that Hispanic people as a whole aren't shown within the data despite them being a large portion of the population of New York in the Census data.
-There are also flaws in the way I show the data, I wasn't able to make a graph of the number of shootings that happened each year, thus showing whether the number of shootings in NYC has increased or decreased.
+There are flaws in this data; for example, there are a large portion of the data where the perp's race isn't specified. Another oversight is that Hispanic people as a whole aren't shown within the data despite them being a large portion of the population of New York in the Census data. There was no population data given, so I was not able to graph the data in terms of shootings per a thousand or a million, which would be useful for showing the number of incidences relative to the borough's population.
+There are also flaws in the way I show the data, I wasn't able to make a graph of the number of shootings that happened each year, thus showing whether the number of shootings in NYC has increased or decreased. 
 
